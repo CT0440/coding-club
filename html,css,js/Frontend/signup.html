@@ -1,208 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Parul University Signup</title>
-  <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      height: 100%;
-      background: #fff;
-      box-sizing: border-box;
-    }
-    *, *::before, *::after {
-      box-sizing: inherit;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Parul University Signup</title>
+<style>
+  body, html {
+    margin: 0; padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    background: #fff;
+    box-sizing: border-box;
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  
+  .container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+  }
+  .left {
+    flex: 0 0 65%;
+    background: url('./images/college.png') no-repeat center center/cover;
+  }
+  .right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 30px;
+    overflow-y: auto;
+  }
+  .signup-form {
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+  }
 
-    .container {
-      display: flex;
-      height: 100vh;
-      width: 100vw;
-      min-width: 320px;
-    }
-    .left {
-      flex: 0 0 65%;
-      background: url('./images/college.png') no-repeat center center/cover;
-    }
-    .right {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: white;
-      padding: 40px 30px;
-      box-sizing: border-box;
-      min-width: 280px;
-      overflow-y: auto;
-    }
-    .signup-form {
-      width: 100%;
-      max-width: 400px;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      margin-bottom: 25px;
-    }
-    .logo img {
-      max-width: 370px;
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-    }
+  .flash-message {
+    display: none;
+    padding: 10px;
+    background: #4BB543;
+    color: white;
+    text-align: center;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
 
-    label {
-      font-weight: 500;
-      margin-bottom: 5px;
-      display: block;
-      color: #333;
-      font-size: 14px;
-    }
-    label.required::before {
-      content: "* ";
-      color: red;
-      font-weight: bold;
-    }
+  .logo img {
+    max-width: 370px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 25px;
+  }
+  label {
+    font-weight: 500;
+    margin-bottom: 5px;
+    display: block;
+    font-size: 14px;
+    color: #333;
+  }
+  label.required::before { content:"* "; color:red; font-weight:bold; }
+  input[type="text"], input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 10px 12px;
+    margin: 8px 0 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 14px;
+  }
+  .show-password {
+    margin-bottom: 20px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  .show-password input { margin-right: 6px; }
+  button {
+    padding: 10px 0;
+    width: 100%;
+    font-size: 15px;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    background: #47887e;
+    color: white;
+  }
+  button:hover { background: #2a615c; }
+  .links { margin-top: 15px; font-size: 14px; text-align: center; }
+  .links a { text-decoration: none; color: #1a73e8; }
+  .links a:hover { text-decoration: underline; }
+  .footer-note { margin-top: 20px; text-align: center; font-size: 12px; color: #999; font-style: italic; }
+  .error { color: red; font-size: 13px; margin-bottom: 10px; }
 
-    input[type="text"],
-    input[type="email"],
-    input[type="password"] {
-      width: 100%;
-      padding: 10px 12px;
-      margin: 8px 0 15px 0;
-      border: 1px solid #ccc;
-      border-radius: 3px;
-      font-size: 14px;
-      box-sizing: border-box;
-    }
-
-    .show-password {
-      margin-bottom: 20px;
-      font-size: 13px;
-      user-select: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-    }
-    .show-password input {
-      margin-right: 6px;
-      cursor: pointer;
-    }
-
-    button {
-      padding: 10px 0;
-      width: 100%;
-      font-size: 15px;
-      border-radius: 3px;
-      border: none;
-      cursor: pointer;
-      font-weight: 600;
-    }
-
-    .btn-signup {
-      background-color: #47887e;
-      color: white;
-      transition: background-color 0.3s ease;
-    }
-    .btn-signup:hover {
-      background-color: #2a615c;
-    }
-
-    .links {
-      margin-top: 15px;
-      font-size: 14px;
-      text-align: center;
-    }
-    .links a {
-      text-decoration: none;
-      color: #1a73e8;
-      cursor: pointer;
-    }
-    .links a:hover {
-      text-decoration: underline;
-    }
-
-    .footer-note {
-      margin-top: 20px;
-      text-align: center;
-      font-size: 12px;
-      color: #999;
-      font-style: italic;
-    }
-
-    @media (max-width: 1024px) {
-      .container {
-        height: auto;
-        min-height: 100vh;
-        flex-wrap: wrap;
-      }
-      .left {
-        flex: 1 1 100%;
-        height: 250px;
-      }
-      .right {
-        flex: 1 1 100%;
-        min-width: auto;
-        padding: 30px 20px;
-      }
-      .signup-form {
-        max-width: 100%;
-      }
-      .logo img {
-        max-width: 200px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .left {
-        display: none;
-      }
-      .right {
-        flex: 1 1 100%;
-        padding: 20px 15px;
-      }
-      .logo img {
-        max-width: 150px;
-        margin-right: 0;
-      }
-      button {
-        width: 100%;
-        margin-bottom: 12px;
-      }
-    }
-  </style>
+  @media (max-width:480px){ .left{display:none;} }
+</style>
 </head>
 <body>
 
 <div class="container">
   <div class="left"></div>
-
   <div class="right">
     <form class="signup-form" onsubmit="event.preventDefault(); signup();">
+      
+      <!-- Flash message -->
+      <div id="flashMessage" class="flash-message">Data saved successfully!</div>
+
       <div class="logo">
         <img src="./images/logo.png" alt="Parul University Logo" />
       </div>
-
       <h2 style="text-align:center; color:#333; margin-bottom:20px;">Create Account</h2>
 
       <label for="fullname" class="required">Full Name</label>
-      <input type="text" id="fullname" placeholder="Enter your full name" required />
+      <input type="text" id="fullname" placeholder="Enter your full name" />
+      <div id="nameError" class="error"></div>
 
       <label for="email" class="required">Email</label>
-      <input type="email" id="email" placeholder="Enter your email" required />
+      <input type="email" id="email" placeholder="Enter your email" />
+      <div id="emailError" class="error"></div>
 
       <label for="mobile" class="required">Mobile Number</label>
-      <input type="text" id="mobile" placeholder="Enter your mobile number" required />
+      <input type="text" id="mobile" placeholder="Enter your mobile number" />
+      <div id="mobileError" class="error"></div>
 
       <label for="password" class="required">Password</label>
-      <input type="password" id="password" placeholder="Create password" required />
+      <input type="password" id="password" placeholder="Create password" />
+      <div id="passwordError" class="error"></div>
 
       <label class="show-password">
-        <input type="checkbox" id="showPassword" onchange="togglePassword()" />
-        Show Password
+        <input type="checkbox" id="showPassword" onchange="togglePassword()" /> Show Password
       </label>
 
       <button type="submit" class="btn-signup">Sign Up</button>
@@ -219,26 +149,55 @@
 </div>
 
 <script>
-  function togglePassword() {
-    const pwField = document.getElementById("password");
-    const showPw = document.getElementById("showPassword").checked;
-    pwField.type = showPw ? "text" : "password";
-  }
+function togglePassword() {
+  const pwField = document.getElementById("password");
+  pwField.type = document.getElementById("showPassword").checked ? "text" : "password";
+}
 
-  function signup() {
-    const name = document.getElementById("fullname").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const mobile = document.getElementById("mobile").value.trim();
-    const password = document.getElementById("password").value.trim();
+function signup() {
+  const name = document.getElementById("fullname").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const mobile = document.getElementById("mobile").value.trim();
+  const password = document.getElementById("password").value.trim();
 
-    if (!name || !email || !mobile || !password) {
-      alert("Please fill out all required fields!");
-      return;
-    }
+  const nameError = document.getElementById("nameError");
+  const emailError = document.getElementById("emailError");
+  const mobileError = document.getElementById("mobileError");
+  const passwordError = document.getElementById("passwordError");
+  const flashMessage = document.getElementById("flashMessage");
 
-    alert(`Signup Successful!\nName: ${name}\nEmail: ${email}\nMobile: ${mobile}`);
-    console.log({ name, email, mobile, password });
-  }
+  nameError.textContent = "";
+  emailError.textContent = "";
+  mobileError.textContent = "";
+  passwordError.textContent = "";
+  flashMessage.style.display = "none";
+
+  let isValid = true;
+
+  if(name === "") { nameError.textContent = "Full name is required."; isValid = false; }
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
+  if(email === "") { emailError.textContent = "Email is required."; isValid = false; }
+  else if(!emailPattern.test(email)) { emailError.textContent = "Enter a valid email address."; isValid = false; }
+  const mobilePattern = /^[0-9]{10}$/;
+  if(mobile === "") { mobileError.textContent = "Mobile number is required."; isValid = false; }
+  else if(!mobilePattern.test(mobile)) { mobileError.textContent = "Enter a valid 10-digit mobile number."; isValid = false; }
+  const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?#&_])[A-Za-z\d@$!%*?#&_]{8,}$/;
+  if(password === "") { passwordError.textContent = "Password is required."; isValid = false; }
+  else if(!passwordPattern.test(password)) { passwordError.textContent = "Password must be at least 8 characters long and include uppercase, lowercase, number, and symbol."; isValid = false; }
+
+  if(!isValid) return;
+
+  // Print to console
+  console.log({ name, email, mobile, password });
+
+  // Show flash message
+  flashMessage.style.display = "block";
+
+  // Redirect after 2 seconds
+  setTimeout(() => {
+    window.location.href = "login.html";
+  }, 2000);
+}
 </script>
 
 </body>

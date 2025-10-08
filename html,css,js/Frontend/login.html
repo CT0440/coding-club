@@ -1,249 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Parul University Login</title>
-  <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      height: 100%;
-      background: #fff;
-      box-sizing: border-box;
-    }
-    *, *::before, *::after {
-      box-sizing: inherit;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Parul University Login</title>
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    background: #fff;
+    box-sizing: border-box;
+  }
+  *, *::before, *::after {
+    box-sizing: inherit;
+  }
 
-    .container {
-      display: flex;
-      height: 100vh;
-      width: 100vw;
-      min-width: 320px;
-    }
-    .left {
-      flex: 0 0 65%;
-      background: url('./images/college.png') no-repeat center center/cover;
-      transition: all 0.3s ease;
-    }
-    .right {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: white;
-      padding: 40px 30px;
-      box-sizing: border-box;
-      min-width: 280px;
-      overflow-y: auto;
-    }
-    .login-form {
-      width: 100%;
-      max-width: 400px;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      margin-bottom: 25px;
-    }
-    .logo img {
-      max-width: 370px;
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-    }
+  .container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+  }
+  .left {
+    flex: 0 0 65%;
+    background: url('./images/college.png') no-repeat center center/cover;
+  }
+  .right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    padding: 40px 30px;
+    min-width: 280px;
+    overflow-y: auto;
+  }
+  .login-form {
+    width: 100%;
+    max-width: 400px;
+  }
+  .logo img {
+    max-width: 370px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 25px;
+  }
+  label {
+    font-weight: 500;
+    margin-bottom: 5px;
+    display: block;
+    color: #333;
+    font-size: 14px;
+  }
+  label.required::before {
+    content: "* ";
+    color: red;
+    font-weight: bold;
+  }
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px 12px;
+    margin: 8px 0 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+  .show-password {
+    margin-bottom: 20px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  .show-password input {
+    margin-right: 6px;
+  }
+  button {
+    padding: 10px 0;
+    width: 48%;
+    font-size: 15px;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  .btn-login {
+    background-color: #47887e;
+    color: white;
+    margin-right: 4%;
+    transition: background-color 0.3s ease;
+  }
+  .btn-login:hover {
+    background-color: #2a615c;
+  }
+  .btn-forgot {
+    background-color: #d9444b;
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  .btn-forgot:hover {
+    background-color: #9a2f31;
+  }
+  .links {
+    margin-top: 15px;
+    font-size: 14px;
+    text-align: center;
+  }
+  .links a {
+    text-decoration: none;
+    color: #1a73e8;
+  }
+  .links a:hover {
+    text-decoration: underline;
+  }
+  .footer-note {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+    font-style: italic;
+  }
+  .flash-msg {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-weight: 600;
+  }
 
-    label {
-      font-weight: 500;
-      margin-bottom: 5px;
-      display: block;
-      color: #333;
-      font-size: 14px;
-    }
-    label.required::before {
-      content: "* ";
-      color: red;
-      font-weight: bold;
-    }
-
-    .role-selection-label {
-      font-weight: 600;
-      margin-bottom: 8px;
-      font-size: 15px;
-      color: #222;
-    }
-    .role-selection {
-      margin-bottom: 20px;
-      display: flex;
-      gap: 20px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .role-selection label {
-      font-weight: normal;
-      font-size: 13px;
-      cursor: pointer;
-      color: #444;
-      display: flex;
-      align-items: center;
-    }
-    .role-selection input[type="radio"] {
-      margin-right: 5px;
-      cursor: pointer;
-    }
-    input[type="text"],
-    input[type="password"] {
-      width: 100%;
-      padding: 10px 12px;
-      margin: 8px 0 15px 0;
-      border: 1px solid #ccc;
-      border-radius: 3px;
-      font-size: 14px;
-      box-sizing: border-box;
-    }
-    .password-info {
-      font-size: 12px;
-      color: #5a9e15;
-      display: inline-block;
-      margin-left: 5px;
-      cursor: help;
-    }
-    .show-password {
-      margin-bottom: 20px;
-      font-size: 13px;
-      user-select: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-    }
-    .show-password input {
-      margin-right: 6px;
-      cursor: pointer;
-    }
-    button {
-      padding: 10px 0;
-      width: 48%;
-      font-size: 15px;
-      border-radius: 3px;
-      border: none;
-      cursor: pointer;
-      font-weight: 600;
-    }
-    .btn-login {
-      background-color: #47887e;
-      color: white;
-      margin-right: 4%;
-      transition: background-color 0.3s ease;
-    }
-    .btn-login:hover {
-      background-color: #2a615c;
-    }
-    .btn-forgot {
-      background-color: #d9444b;
-      color: white;
-      transition: background-color 0.3s ease;
-    }
-    .btn-forgot:hover {
-      background-color: #9a2f31;
-    }
-    .links {
-      margin-top: 15px;
-      font-size: 14px;
-      text-align: center;
-    }
-    .links a {
-      text-decoration: none;
-      color: #1a73e8;
-      cursor: pointer;
-    }
-    .links a:hover {
-      text-decoration: underline;
-    }
-    .google-signin {
-      margin-top: 25px;
-      display: flex;
-      justify-content: center;
-    }
-    .google-button {
-      display: flex;
-      align-items: center;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      padding: 8px 12px;
-      font-size: 14px;
-      cursor: pointer;
-      background-color: white;
-      width: 100%;
-      max-width: 230px;
-      box-sizing: border-box;
-      user-select: none;
-      transition: box-shadow 0.3s ease;
-    }
-    .google-button:hover {
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    }
-    .google-button img {
-      height: 18px;
-      margin-right: 10px;
-    }
-    .footer-note {
-      margin-top: 20px;
-      text-align: center;
-      font-size: 12px;
-      color: #999;
-      font-style: italic;
-    }
-
-    /* Responsive */
-    @media (max-width: 1024px) {
-      .container {
-        height: auto;
-        min-height: 100vh;
-        flex-wrap: wrap;
-      }
-      .left {
-        flex: 1 1 100%;
-        height: 250px;
-      }
-      .right {
-        flex: 1 1 100%;
-        min-width: auto;
-        padding: 30px 20px;
-      }
-      .login-form {
-        max-width: 100%;
-      }
-      .logo img {
-        max-width: 200px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .left {
-        display: none;
-      }
-      .right {
-        flex: 1 1 100%;
-        padding: 20px 15px;
-      }
-      .logo img {
-        max-width: 150px;
-        margin-right: 0;
-      }
-      button {
-        width: 100%;
-        margin-bottom: 12px;
-      }
-      .btn-login {
-        margin-right: 0;
-      }
-      .role-selection {
-        gap: 12px;
-      }
-    }
-  </style>
+  @media (max-width:480px){
+    .left { display:none; }
+    button { width:100%; margin-bottom:12px; }
+    .btn-login { margin-right:0; }
+  }
+</style>
 </head>
 <body>
 
@@ -256,44 +149,25 @@
         <img src="./images/logo.png" alt="Parul University Logo" />
       </div>
 
-      <label class="role-selection-label required">Role</label>
-      <div class="role-selection">
-        <label><input type="radio" name="role" value="staff" checked /> Staff</label>
-        <label><input type="radio" name="role" value="student" /> Student</label>
-      </div>
+      <div id="flashMessage" class="flash-msg"></div>
 
-      <label for="username" class="required">Username</label>
-      <input type="text" id="username" placeholder="Mobile No. / Email / Staff Code" required />
+      <label for="username" class="required">Username/Email</label>
+      <input type="text" id="username" placeholder="Enter your username/email" required />
 
-      <label for="password" class="required">
-        Password <span class="password-info" title="Password should be kept confidential.">&#9432;</span>
-      </label>
-      <input type="password" id="password" placeholder="Password" required />
+      <label for="password" class="required">Password</label>
+      <input type="password" id="password" placeholder="Enter your password" required />
 
       <label class="show-password">
-        <input type="checkbox" id="showPassword" onchange="togglePassword()" />
-        Show Password
+        <input type="checkbox" id="showPassword" onchange="togglePassword()" /> Show Password
       </label>
 
-      <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+      <div style="display:flex; justify-content:space-between; flex-wrap:wrap;">
         <button type="submit" class="btn-login">Login</button>
         <button type="button" class="btn-forgot" onclick="forgotPassword()">Forgot Password</button>
       </div>
 
-      <div class="links" style="margin-top: 12px;">
-        <a href="#">Passout Student Click Here</a>
-      </div>
-
-      <!-- Added Signup Link -->
       <div class="links">
         Don’t have an account? <a href="signup.html">Signup here</a>
-      </div>
-
-      <div class="google-signin">
-        <div class="google-button" onclick="googleSignIn()">
-          <img src="./images/google-logo.jpeg" alt="Google Logo" />
-          Sign in with Google
-        </div>
       </div>
 
       <div class="footer-note">
@@ -304,52 +178,46 @@
 </div>
 
 <script>
-  function togglePassword() {
-    const pwField = document.getElementById("password");
-    const showPw = document.getElementById("showPassword").checked;
-    pwField.type = showPw ? "text" : "password";
+function togglePassword() {
+  const pwField = document.getElementById("password");
+  pwField.type = document.getElementById("showPassword").checked ? "text" : "password";
+}
+
+function login() {
+  const username = document.getElementById("username").value.trim();
+  const password = document.getElementById("password").value.trim();
+  const flash = document.getElementById("flashMessage");
+  flash.textContent = "";
+
+  if (!username || !password) {
+    flash.style.color = "red";
+    flash.textContent = "Please enter username and password!";
+    return;
   }
 
-  function login() {
-    const username = document.getElementById("username").value.trim();
-    const password = document.getElementById("password").value.trim();
-    const roles = document.getElementsByName("role");
-    let selectedRole = null;
+  // Get stored signup data array
+  const signupUsers = JSON.parse(localStorage.getItem("signupData")) || [];
 
-    for (const role of roles) {
-      if (role.checked) {
-        selectedRole = role.value;
-        break;
-      }
-    }
+  // Check if username/email and password match any user
+  const user = signupUsers.find(u => (u.email === username || u.mobile === username) && u.password === password);
 
-    if (!selectedRole) {
-      alert("Please select a role!");
-      return;
-    }
-    if (!username && !password) {
-      alert("You did not enter username and password!");
-      return;
-    }
-    if (!username) {
-      alert("You did not enter username/email!");
-      return;
-    }
-    if (!password) {
-      alert("You did not enter password!");
-      return;
-    }
-
-    alert(`Login Details Saved Successfully!\nRole: ${selectedRole}\nUsername/Email: ${username}`);
+  if (user) {
+    console.log("Login Successful:", user);
+    flash.style.color = "green";
+    flash.textContent = "Login Successful! Redirecting to homepage...";
+    setTimeout(() => {
+      window.location.href = "homepage.html";
+    }, 500);
+  } else {
+    flash.style.color = "red";
+    flash.textContent = "Invalid username or password!";
+    console.log("Login failed for:", { username, password });
   }
+}
 
-  function forgotPassword() {
-    alert("Forgot password clicked!");
-  }
-
-  function googleSignIn() {
-    alert("Google sign-in clicked!");
-  }
+function forgotPassword() {
+  alert("Forgot password clicked!");
+}
 </script>
 
 </body>

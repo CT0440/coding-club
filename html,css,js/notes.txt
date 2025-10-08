@@ -1,0 +1,184 @@
+1. Basics of Web & Frontend Foundations
+
+👉 Goal: Make students comfortable with web structure & styling before Java backend.
+
+HTML → structure (headings, forms, tables, links, images)
+
+CSS → styling basics (selectors, layout, flexbox, responsive design)
+
+JavaScript → variables, functions, DOM manipulation, events
+
+🔹 Mini Project: Personal Portfolio Website
+Students create their own portfolio page using HTML, CSS, JS.
+
+2. Frontend Framework
+
+👉 Goal: Build interactive UI with reusable components.
+
+React (recommended) or Angular basics
+
+Components, Props, State, Events, Hooks (React)
+
+Fetch API / Axios for REST calls
+
+🔹 Mini Project: Simple Todo App (React)
+CRUD tasks stored locally (later connect with backend).
+
+3. Core Java Programming
+
+👉 Goal: Strong Java foundation for backend development.
+
+OOP concepts (class, object, inheritance, polymorphism, abstraction, encapsulation)
+
+Exception Handling
+
+Collections Framework
+
+File Handling & Streams
+
+🔹 Mini Project: Library Management Console App
+CRUD operations with ArrayList/HashMap.
+
+4. Database (SQL)
+
+👉 Goal: Learn persistence layer for storing data.
+
+SQL basics: CRUD queries
+
+Joins, Primary/Foreign Keys
+
+MySQL / PostgreSQL installation & practice
+
+🔹 Mini Project: Student Records Database
+Write queries to insert, update, delete, and fetch student details.
+
+5. JDBC & Hibernate (ORM)
+
+👉 Goal: Connect Java with Database.
+
+JDBC basics (Connection, Statement, ResultSet)
+
+DAO pattern
+
+Hibernate/JPA (Entity, Session, Queries)
+
+🔹 Mini Project: Bank Account Management
+Java app connected to MySQL for account CRUD.
+
+6. Java Web Development (Servlets & JSP)
+
+👉 Goal: Learn request-response cycle & dynamic pages.
+
+Servlet lifecycle, request/response
+
+JSP basics (directives, JSTL, EL)
+
+MVC pattern
+
+🔹 Mini Project: Student Registration App
+Form → Servlet → MySQL → Display in JSP.
+
+7. Spring & Spring Boot
+
+👉 Goal: Industry-standard backend development.
+
+Spring Core (DI, IoC)
+
+Spring Boot basics (auto-config, starter dependencies)
+
+REST APIs with Spring Boot
+
+JPA with Spring Boot (Repository, Entity)
+
+🔹 Mini Project: Employee Management System (Spring Boot + MySQL)
+CRUD REST APIs tested with Postman.
+
+8. Frontend + Backend Integration
+
+👉 Goal: Build full-stack apps.
+
+Connect React frontend with Spring Boot APIs
+
+JWT Authentication (Login/Signup)
+
+State management
+
+🔹 Mini Project: Authentication System (Login + Signup)
+React + Spring Boot + MySQL.
+
+9. Major Full Stack Project
+
+👉 Capstone Project where all skills come together.
+Examples:
+
+Student Management System
+
+E-commerce App
+
+Online Course Platform
+
+Hospital Management System
+
+10. Deployment & DevOps Basics
+
+👉 Goal: Learn how to launch projects online.
+
+Git & GitHub (Version Control)
+
+Build tools (Maven/Gradle)
+
+Deploy Spring Boot + React app on Vercel/Netlify + Render/Heroku
+
+Docker basics (optional)
+
+
+
+24-09-2025
+----------
+1. git init
+2. git status
+2. git add .
+3. git commit -m "your message"
+4.git remote add origin url
+5. git push -u main
+
+
+| Feature       | div (Block)        | span (Inline)        |
+| ------------- | ------------------ | -------------------- |
+| Display type  | block              | inline               |
+| Line behavior | Starts on new line | Stays on same line   |
+| Use case      | Layout, containers | Text styling, inline |
+
+div — Used for grouping larger sections or blocks of content, layouts, and containers.
+
+CSS Syntax
+----------
+Selector in CSS is used to target HTML elements that you want to style.
+
+CSS Font Size Units
+-------------------
+px (pixels)
+Absolute unit. Fixed size on screen regardless of other settings.
+
+% (percentage)
+Relative to the parent element’s font size.
+Example: 120% means 20% larger than parent’s font size.
+
+em
+Relative to the font size of the parent element.
+1em = parent's font size.
+Example: 1.5em is 1.5 times the parent’s font size.
+
+rem
+Relative to the font size of the root (<html>) element.
+Consistent scaling across the whole page.
+
+vw (viewport width)
+Relative to 1% of the viewport’s width.
+Example: 5vw is 5% of the viewport width.
+
+vh (viewport height)
+Relative to 1% of the viewport’s height.
+
+
+

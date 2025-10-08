@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Calculator</title>
+  <style>
+    /* Internal CSS styling */
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    h2 {
+      color: darkblue;
+    }
+
+    input {
+      padding: 8px;
+      margin: 5px;
+      width: 150px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 8px 15px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+      background-color: darkblue;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: navy; /* Button color changes on hover */
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <h2>Simple Calculator</h2>
+
+  <!-- Two input fields for numbers -->
+  <div></div><input id="num1" type="number" placeholder="Enter first number">
+  <input id="num2" type="number" placeholder="Enter second number">
+
+  <br>
+
+  <!-- Buttons call calculate() function with different operations -->
+  <button onclick="calculate('add')">Add</button>
+  <button onclick="calculate('sub')">Subtract</button>
+  <button onclick="calculate('mul')">Multiply</button>
+  <button onclick="calculate('div')">Divide</button>
+
+  <!-- Result will be displayed here -->
+  <p id="result">Result: </p>
+
+  <script>
+    // Function to perform calculation
+    function calculate(operation) {
+      // Get values from input boxes (strings by default)
+      let n1 = parseFloat(document.getElementById("num1").value); // convert to number
+      let n2 = parseFloat(document.getElementById("num2").value); // convert to number
+      let res; // variable to store result
+
+      // Check which operation is selected
+      if (operation === "add") {
+        res = n1 + n2; // Addition
+      } else if (operation === "sub") {
+        res = n1 - n2; // Subtraction
+      } else if (operation === "mul") {
+        res = n1 * n2; // Multiplication
+      } else if (operation === "div") {
+        if (n2 !== 0) { // check division by zero
+          res = n1 / n2; // Division
+        } else {
+          res = "Cannot divide by 0"; // error message
+        }
+      }
+
+      // Show result inside <p> tag
+      document.getElementById("result").innerHTML = "Result: " + res;
+    }
+  </script>
+</body>
+</html>

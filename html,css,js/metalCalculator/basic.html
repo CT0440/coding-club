@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Document</title>
+    <style>
+        .box {
+        background-color: lightblue;
+        width: 200px;           /* content width */
+        padding: 20px;          /* inside space */
+        border: 5px solid black; /* border thickness */
+        margin: 20px 10px;           /* outside space */
+}
+
+        #size1 {
+            background-color: green;
+            height: 100px;
+            width: 100px;
+        }
+        #size2 {
+            background-color: yellow;
+            height: 100vw; /* 100% of viewport width */
+            width: 5vw;
+        }
+        .size3 {
+            background-color: orange;
+            height: 500px;
+            width: 500px;
+        }
+        .size4 {
+            background-color: purple;
+            height: 50%; /* 50% of size3's height = 250px */
+            width: 10%;  /* full width of size3 */
+        }
+    </style>
+</head>
+<body>
+    <!-- block level elements occupy full width by default -->
+    <div class="box">Box1</div>
+    <div class="box">Box2</div>
+  
+    <!-- Inline elements do not occupy full width -->
+    <!-- <span class="box">Box1</span><span class="box">Box2</span> -->
+
+    <div id="size1">div1</div>
+    <div id="size2">div2</div>
+    
+    <div class="size3">
+        div3
+        <div class="size4">Div4</div>
+    </div>
+</body>
+</html>

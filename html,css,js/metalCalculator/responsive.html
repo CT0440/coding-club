@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    header {
+      padding: 20px;
+      color: white;
+    }
+
+    /* Default (Laptop/Desktop) */
+    header {
+      background-color: darkblue;
+    }
+    h1 {
+      font-size: 32px;
+    }
+
+    /* Tablet */
+    @media (max-width: 768px) {
+      header {
+        background-color: darkgreen;
+      }
+      h1 {
+        font-size: 24px;
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 576px) {
+      header {
+        background-color: darkred;
+      }
+      h1 {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Responsive Web Design Demo</h1>
+    <p>Resize your browser or open on Mobile/Tablet/Laptop</p>
+  </header>
+
+</body>
+</html>
